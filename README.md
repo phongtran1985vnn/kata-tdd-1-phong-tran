@@ -1,2 +1,1 @@
-# kata-tdd-1-phong-tran
-apiumtech kata tdd
+kata http://osherove.com/tdd-kata-1
