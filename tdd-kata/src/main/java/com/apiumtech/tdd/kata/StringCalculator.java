@@ -2,7 +2,20 @@ package com.apiumtech.tdd.kata;
 
 public class StringCalculator {
 
-    public int Add(String numbers) {
-        return 0;
-    }
+	public int Add(String numbers) {
+		if ("".equals(numbers)) {
+			return 0;
+		}
+
+		String[] splitString = numbers.split(",");
+
+		int result = 0;
+
+		// TODO : need to refactor
+		for (String number : splitString) {
+			result = result + Integer.parseInt(number);
+		}
+
+		return result;
+	}
 }
