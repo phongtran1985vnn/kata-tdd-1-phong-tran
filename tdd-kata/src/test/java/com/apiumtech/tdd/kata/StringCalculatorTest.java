@@ -55,7 +55,7 @@ public class StringCalculatorTest {
             fail("have an exception");
         }
     }
-    
+
     @Test
     public void testAddShouldSuccessfulWithNumbersContainCharacter() {
         String numbers = "1,a,2,3";
@@ -63,6 +63,42 @@ public class StringCalculatorTest {
             int stringCalculator = classUnderTest.Add(numbers);
 
             assertEquals(6, stringCalculator);
+        } catch (Exception e) {
+            fail("have an exception");
+        }
+    }
+
+    @Test
+    public void testAddShouldSuccessfulWithNumbersContainCharacterAndNewLine() {
+        String numbers = "1,a\n2,3";
+        try {
+            int stringCalculator = classUnderTest.Add(numbers);
+
+            assertEquals(6, stringCalculator);
+        } catch (Exception e) {
+            fail("have an exception");
+        }
+    }
+
+    @Test
+    public void testAddShouldSuccessfulWithNumbersContainCharacterAndNewLineAndValidateTrue() {
+        String numbers = "1\n2,3";
+        try {
+            int stringCalculator = classUnderTest.Add(numbers);
+
+            assertEquals(6, stringCalculator);
+        } catch (Exception e) {
+            fail("have an exception");
+        }
+    }
+
+    @Test
+    public void testAddShouldSuccessfulWithNumbersContainCharacterAndNewLineAndValidateFalse() {
+        String numbers = "1,\n2,3";
+        try {
+            int stringCalculator = classUnderTest.Add(numbers);
+
+            assertEquals(0, stringCalculator);
         } catch (Exception e) {
             fail("have an exception");
         }

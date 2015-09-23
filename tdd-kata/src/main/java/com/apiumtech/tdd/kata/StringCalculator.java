@@ -7,14 +7,17 @@ public class StringCalculator {
             return 0;
         }
 
-        NumberFilter numberFilter = new NumberFilter();
-        String[] splitString = numberFilter.Filter(numbers).split(",");
-
         int result = 0;
+        NumberFilter numberFilter = new NumberFilter();
+        StringCalculatorBuilder stringCalculatorBuilder = new StringCalculatorBuilder();
+        StringCalculatorValidator stringCalculatorValidator = new StringCalculatorValidator();
 
-        // TODO : need to refactor
-        for (String number : splitString) {
-            result = result + Integer.parseInt(number);
+        if (stringCalculatorValidator.Validate(numbers)) {
+            String[] splitString = numberFilter.Filter(stringCalculatorBuilder.BuildStringNumber(numbers)).split(",");
+            // TODO : need to refactor
+            for (String number : splitString) {
+                result = result + Integer.parseInt(number);
+            }
         }
 
         return result;
