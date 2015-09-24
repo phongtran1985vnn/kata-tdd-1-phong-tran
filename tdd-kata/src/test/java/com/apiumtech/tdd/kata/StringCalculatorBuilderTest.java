@@ -31,5 +31,17 @@ public class StringCalculatorBuilderTest {
             fail("have an exception");
         }
     }
+    
+    @Test
+    public void testBuildStringNumberShouldSuccessfulWithDelimiters() {
+        try {
+            String inputString = "//;\n1;2";
+            String stringBuildResult = classUnderTest.BuildStringNumber(inputString);
+
+            assertEquals("1,2", stringBuildResult);
+        } catch (Exception e) {
+            fail("have an exception");
+        }
+    }
 
 }

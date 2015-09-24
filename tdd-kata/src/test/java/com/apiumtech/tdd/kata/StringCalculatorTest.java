@@ -103,4 +103,16 @@ public class StringCalculatorTest {
             fail("have an exception");
         }
     }
+    
+    @Test
+    public void testAddShouldSuccessfulWithDelimiters() {
+        String numbers = "//;\n1;2;7";
+        try {
+            int stringCalculator = classUnderTest.Add(numbers);
+
+            assertEquals(10, stringCalculator);
+        } catch (Exception e) {
+            fail("have an exception");
+        }
+    }
 }
