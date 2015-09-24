@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -103,7 +104,7 @@ public class StringCalculatorTest {
             fail("have an exception");
         }
     }
-    
+
     @Test
     public void testAddShouldSuccessfulWithDelimiters() {
         String numbers = "//;\n1;2;7";
@@ -113,6 +114,23 @@ public class StringCalculatorTest {
             assertEquals(10, stringCalculator);
         } catch (Exception e) {
             fail("have an exception");
+        }
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void testAddShouldThrowException() {
+        String numbers = "1,-2,7,-3,-8,9";
+        classUnderTest.Add(numbers);
+    }
+    
+    @Test
+    public void testAddShouldThrowExceptionWithMessage() {
+        String numbers = "1,-2,7,-3,-8,9";
+        try {
+            classUnderTest.Add(numbers);
+        } catch (Exception e) {
+            Assert.assertNotNull(e);
+            assertEquals("negatives not allowed - [-2, -3, -8]", e.getMessage());
         }
     }
 }
