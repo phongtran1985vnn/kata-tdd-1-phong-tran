@@ -145,4 +145,16 @@ public class StringCalculatorTest {
             fail("have an exception");
         }
     }
+    
+    @Test
+    public void testAddShouldSuccessfulWithAnyLengthDelimiters() {
+        String numbers = "//[***]\n1***2***3";
+        try {
+            int stringCalculator = classUnderTest.Add(numbers);
+
+            assertEquals(6, stringCalculator);
+        } catch (Exception e) {
+            fail("have an exception");
+        }
+    }
 }
