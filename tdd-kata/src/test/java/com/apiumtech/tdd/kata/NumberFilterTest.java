@@ -23,12 +23,12 @@ public class NumberFilterTest {
 
     @Test
     public void testFilterShouldSuccessful() {
-        String stringInput = "1,a,2,b,3";
+        final String stringInput = "1,a,2,b,3";
         try {
-            String numberStringResult = classUnderTest.Filter(stringInput);
+            final String numberStringResult = classUnderTest.Filter(stringInput);
 
             assertEquals("1,2,3", numberStringResult);
-        } catch (Exception e) {
+        } catch (final Exception e) {
             fail("have an exception");
         }
 
@@ -36,12 +36,12 @@ public class NumberFilterTest {
 
     @Test
     public void testFilterShouldSuccessfulWithOneChar() {
-        String stringInput = "a";
+        final String stringInput = "a";
         try {
-            String nuberStringResult = classUnderTest.Filter(stringInput);
+            final String nuberStringResult = classUnderTest.Filter(stringInput);
 
             assertEquals("", nuberStringResult);
-        } catch (Exception e) {
+        } catch (final Exception e) {
             fail("have an exception");
         }
 
@@ -49,12 +49,12 @@ public class NumberFilterTest {
 
     @Test
     public void testFilterShouldSuccessfulWithCommas() {
-        String stringInput = ",";
+        final String stringInput = ",";
         try {
-            String nuberStringResult = classUnderTest.Filter(stringInput);
+            final String nuberStringResult = classUnderTest.Filter(stringInput);
 
             assertEquals("", nuberStringResult);
-        } catch (Exception e) {
+        } catch (final Exception e) {
             fail("have an exception");
         }
 
@@ -62,16 +62,16 @@ public class NumberFilterTest {
 
     @Test(expected = RuntimeException.class)
     public void testFilterShouldThrowException() throws Exception {
-        String stringInput = "1,2,-5,4,-8,6";
+        final String stringInput = "1,2,-5,4,-8,6";
         classUnderTest.Filter(stringInput);
     }
 
     @Test
     public void testFilterShouldThrowExceptionWithMessage() {
-        String stringInput = "1,2,-5,4,-8,6";
+        final String stringInput = "1,2,-5,4,-8,6";
         try {
             classUnderTest.Filter(stringInput);
-        } catch (Exception e) {
+        } catch (final Exception e) {
             Assert.assertNotNull(e);
             assertEquals("negatives not allowed - [-5, -8]", e.getMessage());
         }
@@ -80,12 +80,12 @@ public class NumberFilterTest {
 
     @Test
     public void testFilterShouldSuccessfulIgnoreBiggerThan1000() {
-        String stringInput = "1,2,1000,1001,1021,6";
+        final String stringInput = "1,2,1000,1001,1021,6";
         try {
-            String numberStringResult = classUnderTest.Filter(stringInput);
+            final String numberStringResult = classUnderTest.Filter(stringInput);
 
             assertEquals("1,2,1000,6", numberStringResult);
-        } catch (Exception e) {
+        } catch (final Exception e) {
             fail("have an exception");
         }
 

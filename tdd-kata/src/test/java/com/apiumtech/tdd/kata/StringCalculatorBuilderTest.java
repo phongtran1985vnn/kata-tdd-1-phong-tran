@@ -23,11 +23,11 @@ public class StringCalculatorBuilderTest {
     @Test
     public void testBuildStringNumberShouldSuccessful() {
         try {
-            String inputString = "1\n2,3";
-            String stringBuildResult = classUnderTest.BuildStringNumber(inputString);
+            final String inputString = "1\n2,3";
+            final String stringBuildResult = classUnderTest.BuildStringNumber(inputString);
 
             assertEquals("1,2,3", stringBuildResult);
-        } catch (Exception e) {
+        } catch (final Exception e) {
             fail("have an exception");
         }
     }
@@ -35,11 +35,11 @@ public class StringCalculatorBuilderTest {
     @Test
     public void testBuildStringNumberShouldSuccessfulWithDelimiters() {
         try {
-            String inputString = "//;\n1;2";
-            String stringBuildResult = classUnderTest.BuildStringNumber(inputString);
+            final String inputString = "//;\n1;2";
+            final String stringBuildResult = classUnderTest.BuildStringNumber(inputString);
 
             assertEquals("1,2", stringBuildResult);
-        } catch (Exception e) {
+        } catch (final Exception e) {
             fail("have an exception");
         }
     }
@@ -47,11 +47,11 @@ public class StringCalculatorBuilderTest {
     @Test
     public void testBuildStringNumberShouldSuccessfulWithAnyLengthDelimiters() {
         try {
-            String inputString = "//[***]\n1***2***3";
-            String stringBuildResult = classUnderTest.BuildStringNumber(inputString);
+            final String inputString = "//[***]\n1***2***3";
+            final String stringBuildResult = classUnderTest.BuildStringNumber(inputString);
 
             assertEquals("1,2,3", stringBuildResult);
-        } catch (Exception e) {
+        } catch (final Exception e) {
             fail("have an exception");
         }
     }

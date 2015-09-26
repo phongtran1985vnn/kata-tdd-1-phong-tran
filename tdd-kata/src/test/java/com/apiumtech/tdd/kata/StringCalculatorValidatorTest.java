@@ -23,11 +23,11 @@ public class StringCalculatorValidatorTest {
     @Test
     public void testValidateShouldReturnTrue() {
         try {
-            String inputString = "1\n2,3";
-            boolean validate = classUnderTest.Validate(inputString);
+            final String inputString = "1\n2,3";
+            final boolean validate = classUnderTest.Validate(inputString);
 
             Assert.assertTrue(validate);
-        } catch (Exception e) {
+        } catch (final Exception e) {
             fail("have an exception");
         }
     }
@@ -35,11 +35,11 @@ public class StringCalculatorValidatorTest {
     @Test
     public void testValidateShouldReturnFalseForCase1() {
         try {
-            String inputString = "1,\n,2";
-            boolean validate = classUnderTest.Validate(inputString);
+            final String inputString = "1,\n,2";
+            final boolean validate = classUnderTest.Validate(inputString);
 
             Assert.assertFalse(validate);
-        } catch (Exception e) {
+        } catch (final Exception e) {
             fail("have an exception");
         }
     }
@@ -47,11 +47,11 @@ public class StringCalculatorValidatorTest {
     @Test
     public void testValidateShouldReturnFalseForCase2() {
         try {
-            String inputString = "1\n,2,3";
-            boolean validate = classUnderTest.Validate(inputString);
+            final String inputString = "1\n,2,3";
+            final boolean validate = classUnderTest.Validate(inputString);
 
             Assert.assertFalse(validate);
-        } catch (Exception e) {
+        } catch (final Exception e) {
             fail("have an exception");
         }
     }
