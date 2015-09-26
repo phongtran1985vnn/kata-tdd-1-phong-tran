@@ -26,8 +26,7 @@
 					</formats>
 					<instrumentation>
 						<excludes>
-							<exclude>**/model/**/*.class</exclude>
-							<exclude>**/exception/**/*.class</exclude>
+							<exclude>**/Constants.class</exclude>
 						</excludes>
 					</instrumentation>
 				</configuration>

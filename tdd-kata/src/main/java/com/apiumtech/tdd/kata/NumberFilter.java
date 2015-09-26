@@ -12,10 +12,10 @@ public class NumberFilter {
         for (int i = 0; i < splitString.length; i++) {
             try {
                 int number = Integer.parseInt(splitString[i]);
-                if (number > 0) {
+                if (number > 0 && number <= 1000) {
                     stringBuilder.append(splitString[i]);
                     stringBuilder.append(",");
-                } else {
+                } else if (number < 0) {
                     negativeList.add(number);
                 }
             } catch (NumberFormatException e) {

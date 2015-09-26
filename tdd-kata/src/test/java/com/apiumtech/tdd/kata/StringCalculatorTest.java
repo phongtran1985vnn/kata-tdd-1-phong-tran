@@ -133,4 +133,16 @@ public class StringCalculatorTest {
             assertEquals("negatives not allowed - [-2, -3, -8]", e.getMessage());
         }
     }
+    
+    @Test
+    public void testAddShouldSuccessfulIgnoreBiggerThan1000() {
+        String numbers = "1,1000,2,3,2001,1023,4";
+        try {
+            int stringCalculator = classUnderTest.Add(numbers);
+
+            assertEquals(1010, stringCalculator);
+        } catch (Exception e) {
+            fail("have an exception");
+        }
+    }
 }

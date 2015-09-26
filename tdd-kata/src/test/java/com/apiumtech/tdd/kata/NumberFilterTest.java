@@ -65,7 +65,7 @@ public class NumberFilterTest {
         String stringInput = "1,2,-5,4,-8,6";
         classUnderTest.Filter(stringInput);
     }
-    
+
     @Test
     public void testFilterShouldThrowExceptionWithMessage() {
         String stringInput = "1,2,-5,4,-8,6";
@@ -74,6 +74,19 @@ public class NumberFilterTest {
         } catch (Exception e) {
             Assert.assertNotNull(e);
             assertEquals("negatives not allowed - [-5, -8]", e.getMessage());
+        }
+
+    }
+
+    @Test
+    public void testFilterShouldSuccessfulIgnoreBiggerThan1000() {
+        String stringInput = "1,2,1000,1001,1021,6";
+        try {
+            String numberStringResult = classUnderTest.Filter(stringInput);
+
+            assertEquals("1,2,1000,6", numberStringResult);
+        } catch (Exception e) {
+            fail("have an exception");
         }
 
     }
