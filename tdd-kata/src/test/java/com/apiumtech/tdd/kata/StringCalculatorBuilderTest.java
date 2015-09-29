@@ -71,6 +71,18 @@ public class StringCalculatorBuilderTest {
     }
 
     @Test
+    public void testBuildStringNumberShouldSuccessfulWithMultipleDelimitersAndAnyLengthOfDelimiters() {
+        try {
+            final String inputString = "//[***][%%%]\n1***2%%%3";
+            final String stringBuildResult = classUnderTest.BuildStringNumber(inputString);
+
+            assertEquals("1,2,3", stringBuildResult);
+        } catch (final Exception e) {
+            fail("have an exception");
+        }
+    }
+
+    @Test
     public void testBuildDelimiterListShouldSuccessful() {
         try {
             final String inputString = "//[*][%]\n1*2%3";
